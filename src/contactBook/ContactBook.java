@@ -103,7 +103,7 @@ public class ContactBook {
             return false;
         else{
             Integer[] numbers = new Integer[counter];
-            for(int i = 1; i <= counter; i++)
+            for(int i = 0; i < counter; i++)
                 numbers[i] = contacts[i].getPhone();
 
             Set<Integer> auxContactBook = new HashSet<Integer>(Arrays.asList(numbers));

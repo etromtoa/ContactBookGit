@@ -107,7 +107,7 @@ public class ContactBook {
                 numbers[i] = contacts[i].getPhone();
 
             Set<Integer> auxContactBook = new HashSet<Integer>(Arrays.asList(numbers));
-            return auxContactBook.size() == counter;
+            return auxContactBook.size() < counter;
         }
     }
 

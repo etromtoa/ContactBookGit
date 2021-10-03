@@ -109,13 +109,13 @@ public class ContactBook {
         }
     }
 
-    public Contact getPhoneNumber(int phone) {
+    public String getPhoneNumber(int phone) {
         int j = 0;
         while (j < counter)
             if (contacts[j].getPhone() != (phone)) {
                 j++;
             } else {
-                return contacts[j];
+                return contacts[j].getName();
             }
         return null;
     }

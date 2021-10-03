@@ -172,11 +172,10 @@ public class Main {
     private static void getPhoneNumber(Scanner in, ContactBook cBook) {
         int phone;
         phone = in.nextInt();
-        Contact returnedValue = cBook.getPhoneNumber(phone);
+        in.nextLine();
+        String returnedValue = cBook.getPhoneNumber(phone);
         if (returnedValue != null) {
-            System.out.println("Name : " + returnedValue.getName() + "\n" +
-                    "Phone : " + returnedValue.getPhone() + "\n" +
-                    "Email : " + returnedValue.getEmail());
+            System.out.println(returnedValue);
         } else
             System.out.println(PHONE_NO_EXIST);
     }

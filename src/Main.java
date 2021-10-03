@@ -14,7 +14,7 @@ public class Main {
     public static final String SET_EMAIL = "SE";
     public static final String LIST_CONTACTS = "LC";
     public static final String LOOKUP_NUMBER = "GN";
-    public static final String _PHONE = "EP";
+    public static final String EQUAL_PHONE = "EP";
     public static final String QUIT = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -57,6 +57,9 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case EQUAL_PHONE:
+                    checkForSharedNumbers(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -153,5 +156,13 @@ public class Main {
             }
         } else
             System.out.println(BOOK_EMPTY);
+    }
+
+    private static void checkForSharedNumbers(ContactBook cBook) {
+        if (!cBook.checkForSharedNumbers()) {
+            System.out.println(NO_REPEATED_CONTACTS);
+        } else {
+            System.out.println(REPEATED_CONTACTS);
+        }
     }
 }

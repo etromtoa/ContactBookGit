@@ -2,6 +2,10 @@ package contactBook;
 
 import contactBook.Contact;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -91,6 +95,24 @@ public class ContactBook {
     //Pre: hasNext()
     public Contact next() {
         return contacts[currentContact++];
+    }
+
+    //Check if there are contacts with the same phone number
+    public boolean checkForSharedNumbers(){
+        if(isEmpty())
+            return false;
+        else{
+            Integer[] numbers = new Integer[counter];
+            for(int i = 1; i <= counter; i++)
+                numbers[i] = contacts[i].getPhone();
+
+            Set<Integer> auxContactBook = new HashSet<Integer>(Arrays.asList(numbers));
+            return auxContactBook.size() == counter;
+        }
+    }
+
+    private boolean isEmpty(){
+        return counter == 0;
     }
 
 }

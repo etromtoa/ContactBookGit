@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -109,6 +107,17 @@ public class ContactBook {
             Set<Integer> auxContactBook = new HashSet<Integer>(Arrays.asList(numbers));
             return auxContactBook.size() < counter;
         }
+    }
+
+    public Contact getPhoneNumber(int phone) {
+        int j = 0;
+        while (j < counter)
+            if (contacts[j].getPhone() != (phone)) {
+                j++;
+            } else {
+                return contacts[j];
+            }
+        return null;
     }
 
     private boolean isEmpty(){

@@ -61,6 +61,9 @@ public class Main {
                 case EQUAL_PHONE:
                     checkForSharedNumbers(cBook);
                     break;
+                case LOOKUP_NUMBER:
+                    getPhoneNumber(in, cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -164,5 +167,17 @@ public class Main {
         } else {
             System.out.println(REPEATED_CONTACTS);
         }
+    }
+
+    private static void getPhoneNumber(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt();
+        Contact returnedValue = cBook.getPhoneNumber(phone);
+        if (returnedValue != null) {
+            System.out.println("Name : " + returnedValue.getName() + "\n" +
+                    "Phone : " + returnedValue.getPhone() + "\n" +
+                    "Email : " + returnedValue.getEmail());
+        } else
+            System.out.println(PHONE_NO_EXIST);
     }
 }
